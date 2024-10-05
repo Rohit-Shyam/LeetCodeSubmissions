@@ -1,30 +1,26 @@
 class Solution {
-    public static boolean replyBack(String str) {
-    for (int i = 0; i < str.length(); i++) {
-        for (int j = i + 1; j < str.length(); j++) {
-            if (str.charAt(i) == str.charAt(j)) {
-                return false;  
-            }
+    public static boolean reply(String s, int sl){
+        HashSet<Character> hs = new HashSet<>();
+        for(int i =0 ;i<s.length();i++){
+            char ch = s.charAt(i);
+            hs.add(ch);
+        }
+        if(hs.size()==sl){
+            return true;
+        }else{
+            return false;
         }
     }
-    return true;  
-    }
+        
     public int countGoodSubstrings(String s) {
-        int sl = 3;
         int n = s.length();
+        int sl = 3;
         int ans = 0;
-        for(int i =0; i<n; i++){
-            int j = i+ (sl-1);
-                if(j>=n){
-                    break;
-                }
-                String temp = "";
-                for(int k =i; k<=j;k++){
-                    temp = temp + s.charAt(k);
-                }
-                if(replyBack(temp)){
-                    ans++;
-                }
+        for(int i =0; i<n-(sl-1);i++){
+            boolean temp = reply(s.substring(i,i+sl), sl);
+            if(temp == true){
+                ans++;
+            }
         }
         return ans;
     }
