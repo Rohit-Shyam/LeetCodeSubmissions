@@ -4,9 +4,8 @@ class Solution {
         int l =0;
         int min = Integer.MAX_VALUE;
         for(int r = 0 ; r<nums.length; r++){
-            int temp = 0;
             if(r-l+1==k){
-                temp = nums[r] - nums[l];
+                int temp = nums[r] - nums[l];
                 min = Math.min(min,temp);
                 l++;
             }
