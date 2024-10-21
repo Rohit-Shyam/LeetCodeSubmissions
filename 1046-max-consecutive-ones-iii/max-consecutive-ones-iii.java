@@ -10,8 +10,6 @@ class Solution {
             while(temp>k){
                 if(nums[l]==0){
                     temp--;
-                    l=l+1;
-                    continue;
                 }
                 l++;
             }
