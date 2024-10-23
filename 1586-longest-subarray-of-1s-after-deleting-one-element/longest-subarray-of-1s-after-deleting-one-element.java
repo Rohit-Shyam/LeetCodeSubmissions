@@ -1,6 +1,5 @@
 class Solution {
     public int longestSubarray(int[] nums) {
-        int k = 1;
         int temp = 0;
         int ans = 0;
         int l = 0;
@@ -8,7 +7,7 @@ class Solution {
             if(nums[r]==0){
                 temp+=1;
             }
-            while(temp>k){
+            while(temp>1){
                 if(nums[l]==0){
                     temp-=1;
                 }
